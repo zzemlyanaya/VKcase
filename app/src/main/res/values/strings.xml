@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">VKcase</string>
+    <string name="goal_target">Например, лечение человека</string>
+    <string name="goal_regular">Например, поддержка приюта</string>
+    <string name="sum_regular">Сумма в месяц, ₽</string>
+    <string name="sum_regular_prompt">Сколько нужно в месяц?</string>
+    <string name="sum_target">Сумма, ₽</string>
+    <string name="sum_target_prompt">Сколько нужно собрать?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

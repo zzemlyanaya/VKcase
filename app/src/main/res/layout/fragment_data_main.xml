@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:windowSoftInputMode="adjustPan">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="ru.zzemlyanaya.vkcase.main.datamain.DataMainViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/butAddCover"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/im_cover"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/roboto"
+                android:text="Название сбора"
+                android:textColor="@color/textGrey"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/butAddCover" />
+
+            <TextView
+                android:id="@+id/textViewSum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/sum_regular"
+                android:textColor="@color/textGrey"
+                app:layout_constraintStart_toStartOf="@+id/textName"
+                app:layout_constraintTop_toBottomOf="@+id/textName" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Цель"
+                android:textColor="@color/textGrey"
+                app:layout_constraintStart_toStartOf="@+id/textSum"
+                app:layout_constraintTop_toBottomOf="@+id/textSum" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Описание"
+                android:textColor="@color/textGrey"
+                app:layout_constraintStart_toStartOf="@+id/textGoal"
+                app:layout_constraintTop_toBottomOf="@+id/textGoal" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Куда получать деньги"
+                android:textColor="@color/textGrey"
+                app:layout_constraintStart_toStartOf="@+id/textDescription"
+                app:layout_constraintTop_toBottomOf="@+id/textDescription" />
+
+            <EditText
+                android:id="@+id/textName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Придумайте цепляющее название"
+                android:inputType="textShortMessage|textCapWords"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/textHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <EditText
+                android:id="@+id/textSum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Название сбора"
+                android:inputType="number|numberDecimal"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/textHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textViewSum"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSum" />
+
+            <EditText
+                android:id="@+id/textGoal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:inputType="textShortMessage|textLongMessage|textMultiLine|textCapSentences|textImeMultiLine"
+                android:singleLine="false"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/textHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <EditText
+                android:id="@+id/textPay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/edittext_background"
+                android:drawableEnd="@drawable/ic_down_arrow"
+                android:drawableTint="@color/iconGrey"
+                android:editable="false"
+                android:ems="10"
+                android:inputType="none"
+                android:singleLine="true"
+                android:text="Счёт VK Pay ⋅ 1234"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <EditText
+                android:id="@+id/textDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="На что пойдут деньги и как они кому-то помогут?"
+                android:inputType="textLongMessage|textMultiLine|textCapSentences|textImeMultiLine|textCapWords"
+                android:singleLine="false"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/textHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView9"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <Button
+                android:id="@+id/butNext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="0dp"
+                android:fontFamily="@font/roboto_medium"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="Далее"
+                android:enabled="@{viewmodel.loginFormState.dataValid ? true : false}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:cornerRadius="11dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textPay"
+                app:layout_constraintStart_toStartOf="@+id/textPay"
+                app:layout_constraintTop_toBottomOf="@+id/textPay" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,16 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorAccent">@color/iconBlue</item>
+        <item name="colorPrimary">@color/iconBlue</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="colorSurface">@android:color/transparent</item>
+        <item name="android:datePickerDialogTheme">@style/Style</item>
+    </style>
+
+    <style name="Style" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="backgroundColor">@color/background</item>
+        <item name="colorAccent">@color/iconBlue</item>
+    </style>
+
+</resources>
