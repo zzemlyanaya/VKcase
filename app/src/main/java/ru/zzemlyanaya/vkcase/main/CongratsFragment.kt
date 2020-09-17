@@ -25,9 +25,7 @@ class CongratsFragment : Fragment() {
         val binding: FragmentCongratsBinding
                 = DataBindingUtil.inflate(inflater, R.layout.fragment_congrats, container, false)
 
-        binding.butHey.setOnClickListener {
-            (requireActivity() as MainActivity).onBackPressed()
-        }
+
 
         return binding.root
     }

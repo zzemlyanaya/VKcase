@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import ru.zzemlyanaya.vkcase.R
 import ru.zzemlyanaya.vkcase.Utils.FROM_LEFT
 import ru.zzemlyanaya.vkcase.Utils.FROM_RIGHT
-import ru.zzemlyanaya.vkcase.Utils.MODE_TARGET
 import ru.zzemlyanaya.vkcase.Utils.NAME
 import ru.zzemlyanaya.vkcase.databinding.ActivityMainBinding
 import ru.zzemlyanaya.vkcase.main.dataaddit.DataAdditFragment
@@ -36,10 +35,8 @@ class MainActivity : AppCompatActivity() {
         val fragment = supportFragmentManager.findFragmentById(R.id.container)
         when(fragment!!.tag) {
             "first" -> {}
-            "choice" -> showFirstFragment(FROM_LEFT)
-            "data_main_target" -> showChoiceFragment(FROM_LEFT)
-            "data_main_regular" -> showChoiceFragment(FROM_LEFT)
-            "data_addit" -> showDataMainFragment(FROM_LEFT, MODE_TARGET)
+            "data_main" -> showFirstFragment(FROM_LEFT)
+            "data_addit" -> showDataMainFragment(FROM_LEFT)
             "congrats" -> showFirstFragment(FROM_LEFT)
             else -> {}
         }
@@ -55,38 +52,22 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.container, FirstFragment(), "first")
             .commitAllowingStateLoss()
 
+        binding.headBar.root.visibility = View.INVISIBLE
+    }
+
+    fun showDataMainFragment(direction: Int){
+        val transaction = supportFragmentManager.beginTransaction()
+        when(direction){
+            FROM_RIGHT -> transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
+            else -> transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
+
+        }
+        transaction
+            .replace(R.id.container, DataMainFragment(), "data_main")
+            .commitAllowingStateLoss()
+
         binding.headBar.root.visibility = View.VISIBLE
-        binding.headBar.headerText.text = "Пожертвования"
-        binding.headBar.butBack.visibility = View.INVISIBLE
-    }
-
-    fun showChoiceFragment(direction: Int){
-        val transaction = supportFragmentManager.beginTransaction()
-        when(direction){
-            FROM_RIGHT -> transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
-            else -> transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
-
-        }
-        transaction
-            .replace(R.id.container, ChoiceFragment(), "choice")
-            .commitAllowingStateLoss()
-
-        binding.headBar.headerText.text = "Тип сбора"
-        binding.headBar.butBack.visibility = View.VISIBLE
-    }
-
-    fun showDataMainFragment(direction: Int, mode: String){
-        val transaction = supportFragmentManager.beginTransaction()
-        when(direction){
-            FROM_RIGHT -> transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
-            else -> transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
-
-        }
-        transaction
-            .replace(R.id.container, DataMainFragment.newInstance(mode), "data_main_$mode")
-            .commitAllowingStateLoss()
-
-        binding.headBar.headerText.text = "Основное"
+        binding.headBar.headerText.text = "Новый подкаст"
     }
 
     fun showDataAdditFragment(direction: Int){

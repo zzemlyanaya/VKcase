@@ -8,14 +8,13 @@ class DataMainViewModel : ViewModel() {
     private val _mainForm = MutableLiveData(DataMainFormState())
     val loginFormState: LiveData<DataMainFormState> = _mainForm
 
-    fun mainDataChanged(name: String, sum: String, goal: String, description: String){
+    fun mainDataChanged(name: String, isFileAdded: Boolean, description: String){
         _mainForm.value =
             DataMainFormState(
                 validateField(name),
-                validateField(sum),
-                validateField(goal),
+                if (isFileAdded) null else "Добавьте файл!",
                 validateField(description),
-                name.isNotBlank() && sum.isNotBlank() && goal.isNotBlank() && description.isNotBlank())
+                name.isNotBlank() && isFileAdded && description.isNotBlank())
     }
 
     private fun validateField(data: String)

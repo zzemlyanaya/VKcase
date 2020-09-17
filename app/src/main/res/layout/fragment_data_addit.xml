@@ -12,128 +12,72 @@
         android:layout_height="match_parent"
         tools:context=".main.dataaddit.DataAdditFragment" >
 
-        <EditText
-            android:id="@+id/textAuthor"
-            android:layout_width="0dp"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="12dp"
-            android:background="@drawable/edittext_background"
-            android:drawableEnd="@drawable/ic_down_arrow"
-            android:drawableTint="@color/iconGrey"
-            android:editable="false"
-            android:ems="10"
-            android:inputType="none"
-            android:singleLine="true"
-            android:text="Счёт VK Pay ⋅ 1234"
-            android:textColor="@android:color/black"
+            android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_im_edit" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="ТАЙМКОДЫ"
+            android:textColor="@color/textGrey"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_taimcode" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+            app:srcCompat="@drawable/ic_plus" />
+
+        <TextView
+            android:id="@+id/butAddTimecode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/roboto"
-            android:text="Автор"
-            android:textColor="@color/textGrey"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Добавить таймкод"
+            android:textColor="@color/iconBlue"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+            app:layout_constraintStart_toEndOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imageButton3" />
 
         <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/roboto_medium"
-            android:text="Сбор завершится"
-            app:layout_constraintStart_toStartOf="@+id/textAuthor"
-            app:layout_constraintTop_toBottomOf="@+id/textAuthor" />
-
-        <RadioGroup
-            android:id="@+id/radioGroup2"
+            android:id="@+id/textView8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="32dp"
+            android:text="Отметки времени с названием темы. Позволяют слушателям легче путешествовать по подкасту."
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/textView7">
-
-            <RadioButton
-                android:id="@+id/butSum"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:buttonTint="@color/iconBlue"
-                android:checked="true"
-                android:text="Когда соберём сумму"
-                android:textSize="15sp" />
-
-            <RadioButton
-                android:id="@+id/butDate"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:buttonTint="@color/iconBlue"
-                android:text="В определённую дату"
-                android:textSize="15sp" />
-        </RadioGroup>
-
-        <LinearLayout
-            android:id="@+id/layoutDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:orientation="vertical"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/radioGroup2"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
-            tools:visibility="visible">
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:text="Дата окончания"
-                android:textColor="@color/textGrey" />
-
-            <EditText
-                android:id="@+id/textDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/edittext_background"
-                android:drawableEnd="@drawable/ic_down_arrow"
-                android:drawableTint="@color/iconGrey"
-                android:editable="false"
-                android:ems="10"
-                android:inputType="none"
-                android:singleLine="true"
-                android:text="Счёт VK Pay ⋅ 1234"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/butDone"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:elevation="0dp"
-            android:fontFamily="@font/roboto_medium"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="Создать сбор"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:cornerRadius="11dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/layoutDate"
-            app:layout_constraintStart_toStartOf="@+id/layoutDate" />
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

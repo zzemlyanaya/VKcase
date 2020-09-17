@@ -21,7 +21,7 @@ class FirstFragment : Fragment() {
                 = DataBindingUtil.inflate(inflater, R.layout.fragment_first, container, false)
 
         binding.butCreate.setOnClickListener {
-            (requireActivity() as MainActivity).showChoiceFragment(FROM_RIGHT)
+            (requireActivity() as MainActivity).showDataMainFragment(FROM_RIGHT)
         }
 
         return binding.root
