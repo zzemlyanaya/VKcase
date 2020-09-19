@@ -9,11 +9,12 @@ import ru.zzemlyanaya.vkcase.Utils.FROM_LEFT
 import ru.zzemlyanaya.vkcase.Utils.FROM_RIGHT
 import ru.zzemlyanaya.vkcase.Utils.NAME
 import ru.zzemlyanaya.vkcase.databinding.ActivityMainBinding
-import ru.zzemlyanaya.vkcase.main.dataaddit.DataAdditFragment
-import ru.zzemlyanaya.vkcase.main.datamain.DataMainFragment
+import ru.zzemlyanaya.vkcase.main.posts.PostListFragment
+
 
 class MainActivity : AppCompatActivity() {
     var name: String = ""
+    var postText: String = ""
 
     private lateinit var binding: ActivityMainBinding
 
@@ -34,10 +35,11 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         val fragment = supportFragmentManager.findFragmentById(R.id.container)
         when(fragment!!.tag) {
-            "first" -> {}
-            "data_main" -> showFirstFragment(FROM_LEFT)
-            "data_addit" -> showDataMainFragment(FROM_LEFT)
+            "first", "news" -> {}
+            "create" -> showFirstFragment(FROM_LEFT)
             "congrats" -> showFirstFragment(FROM_LEFT)
+            "map" -> showNewsFragment(FROM_LEFT)
+            "posts" -> showMapFragment(FROM_LEFT)
             else -> {}
         }
     }
@@ -52,10 +54,10 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.container, FirstFragment(), "first")
             .commitAllowingStateLoss()
 
-        binding.headBar.root.visibility = View.INVISIBLE
+        binding.headBar.root.visibility = View.GONE
     }
 
-    fun showDataMainFragment(direction: Int){
+    fun showCreatePostFragment(direction: Int){
         val transaction = supportFragmentManager.beginTransaction()
         when(direction){
             FROM_RIGHT -> transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
@@ -63,26 +65,12 @@ class MainActivity : AppCompatActivity() {
 
         }
         transaction
-            .replace(R.id.container, DataMainFragment(), "data_main")
+            .replace(R.id.container, CreatePostFragment.newInstance(name), "create")
             .commitAllowingStateLoss()
 
-        binding.headBar.root.visibility = View.VISIBLE
-        binding.headBar.headerText.text = "Новый подкаст"
+        binding.headBar.root.visibility = View.GONE
     }
 
-    fun showDataAdditFragment(direction: Int){
-        val transaction = supportFragmentManager.beginTransaction()
-        when(direction){
-            FROM_RIGHT -> transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
-            else -> transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
-
-        }
-        transaction
-            .replace(R.id.container, DataAdditFragment.newInstance(name), "data_addit")
-            .commitAllowingStateLoss()
-
-        binding.headBar.headerText.text = "Дополнительно"
-    }
 
     fun showCongratsFragment(direction: Int){
         val transaction = supportFragmentManager.beginTransaction()
@@ -95,6 +83,50 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.container, CongratsFragment(), "congrats")
             .commitAllowingStateLoss()
 
-        binding.headBar.headerText.text = "Поздравления"
+        binding.headBar.root.visibility = View.VISIBLE
+        binding.headBar.headerText.text = "Успешно"
+    }
+
+    fun showNewsFragment(direction: Int){
+        val transaction = supportFragmentManager.beginTransaction()
+        when(direction){
+            FROM_RIGHT -> transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
+            else -> transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
+
+        }
+        transaction
+            .replace(R.id.container, NewsFragment(), "news")
+            .commitAllowingStateLoss()
+
+        binding.headBar.root.visibility = View.GONE
+    }
+
+    fun showMapFragment(direction: Int){
+        val transaction = supportFragmentManager.beginTransaction()
+        when(direction){
+            FROM_RIGHT -> transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
+            else -> transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
+
+        }
+        transaction
+            .replace(R.id.container, MapFragment(), "map")
+            .commitAllowingStateLoss()
+
+        binding.headBar.root.visibility = View.GONE
+    }
+
+    fun showPostListFragment(direction: Int){
+        val transaction = supportFragmentManager.beginTransaction()
+        when(direction){
+            FROM_RIGHT -> transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
+            else -> transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
+
+        }
+        transaction
+            .replace(R.id.container, PostListFragment.newInstance(postText), "posts")
+            .commitAllowingStateLoss()
+
+        binding.headBar.root.visibility = View.VISIBLE
+        binding.headBar.headerText.text = "Искусство"
     }
 }

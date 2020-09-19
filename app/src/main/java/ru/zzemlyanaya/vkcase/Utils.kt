@@ -6,13 +6,12 @@ import android.widget.EditText
 
 object Utils {
     const val NAME = "name"
+    const val TEXT = "text"
 
     const val FROM_RIGHT = 0
     const val FROM_LEFT = 1
 
-    const val MODE = "mode"
-    const val MODE_TARGET = "target"
-    const val MODE_REGULAR = "regular"
+
 
     /**
      * Extension function to simplify setting an afterTextChanged action to EditText components.

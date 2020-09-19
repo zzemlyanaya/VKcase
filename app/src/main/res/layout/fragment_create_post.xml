@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main.CreatePostFragment" >
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="0.66dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/textBorder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/butCancel"
+            app:layout_constraintTop_toBottomOf="@+id/butChangeName" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="0.66dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/textBorder"
+            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/butCancel" />
+
+        <ImageButton
+            android:id="@+id/butCancel"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_cancel"
+            android:tint="@color/iconBlue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/butPost"
+            android:layout_width="38dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_ok"
+            android:tint="@color/iconBlue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/butCancel" />
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/butCancel"
+            app:layout_constraintStart_toEndOf="@+id/butCancel"
+            app:layout_constraintTop_toTopOf="@+id/butCancel"
+            tools:text="Name" />
+
+        <ImageButton
+            android:id="@+id/butChangeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="@android:color/transparent"
+            android:rotation="270"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_back_left"
+            app:layout_constraintStart_toEndOf="@+id/textName"
+            app:layout_constraintTop_toTopOf="@+id/textName" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/textPost"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@null"
+            android:editable="true"
+            android:enabled="true"
+            android:fontFamily="@font/roboto"
+            android:gravity="top"
+            android:inputType="textLongMessage|textMultiLine|textCapSentences|textImeMultiLine"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/attachment_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/view3">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:isScrollContainer="false"
+                android:overScrollMode="always"
+                android:scrollbarSize="0dp"
+                android:scrollbars="horizontal"
+                app:chipSpacingHorizontal="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/view3"
+                app:singleLine="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Видно всем"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/textHint"
+                    android:textSize="12sp"
+                    app:chipBackgroundColor="@android:color/white"
+                    app:chipCornerRadius="9dp"
+                    app:chipEndPadding="8dp"
+                    app:chipIcon="@drawable/ic_user"
+                    app:chipIconSize="18sp"
+                    app:chipIconTint="@color/textHint"
+                    app:chipStartPadding="8dp"
+                    app:chipStrokeColor="@color/textBorder"
+                    app:chipStrokeWidth="1dp"
+                    app:closeIconStartPadding="0dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Сейчас"
+                    android:textColor="@color/textHint"
+                    android:textSize="12sp"
+                    app:chipBackgroundColor="@android:color/white"
+                    app:chipCornerRadius="9dp"
+                    app:chipEndPadding="8dp"
+                    app:chipIcon="@drawable/ic_clock"
+                    app:chipIconSize="18dp"
+                    app:chipIconTint="@color/textHint"
+                    app:chipStartPadding="8dp"
+                    app:chipStrokeColor="@color/textBorder"
+                    app:chipStrokeWidth="1dp"
+                    app:closeIconVisible="false" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Настроение"
+                    android:textColor="@color/textHint"
+                    android:textSize="12sp"
+                    app:chipBackgroundColor="@android:color/white"
+                    app:chipCornerRadius="9dp"
+                    app:chipEndPadding="8dp"
+                    app:chipIconSize="18dp"
+                    app:chipIconTint="@color/textHint"
+                    app:chipStartPadding="8dp"
+                    app:chipStrokeColor="@color/textBorder"
+                    app:chipStrokeWidth="1dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Тематика"
+                    android:textColor="@color/textHint"
+                    android:textSize="12sp"
+                    app:chipBackgroundColor="@android:color/white"
+                    app:chipCornerRadius="9dp"
+                    app:chipEndPadding="8dp"
+                    app:chipIconSize="18dp"
+                    app:chipIconTint="@color/textHint"
+                    app:chipStartPadding="8dp"
+                    app:chipStrokeColor="@color/textBorder"
+                    app:chipStrokeWidth="1dp" />
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

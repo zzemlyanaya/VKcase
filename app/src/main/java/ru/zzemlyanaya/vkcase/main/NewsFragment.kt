@@ -8,20 +8,20 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import ru.zzemlyanaya.vkcase.R
 import ru.zzemlyanaya.vkcase.Utils.FROM_RIGHT
-import ru.zzemlyanaya.vkcase.databinding.FragmentFirstBinding
+import ru.zzemlyanaya.vkcase.databinding.FragmentNewsBinding
 
 
-class FirstFragment : Fragment() {
+class NewsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentFirstBinding
-                = DataBindingUtil.inflate(inflater, R.layout.fragment_first, container, false)
+        val binding: FragmentNewsBinding
+                =DataBindingUtil.inflate(inflater, R.layout.fragment_news, container, false)
 
-        binding.butCreate.setOnClickListener {
-            (requireActivity() as MainActivity).showCreatePostFragment(FROM_RIGHT)
+        binding.fabGlobe.setOnClickListener {
+            (requireActivity() as MainActivity).showMapFragment(FROM_RIGHT)
         }
 
         return binding.root

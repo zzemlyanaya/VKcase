@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import ru.zzemlyanaya.vkcase.R
+import ru.zzemlyanaya.vkcase.Utils.FROM_RIGHT
 import ru.zzemlyanaya.vkcase.Utils.NAME
 import ru.zzemlyanaya.vkcase.databinding.FragmentCongratsBinding
 
@@ -25,7 +26,9 @@ class CongratsFragment : Fragment() {
         val binding: FragmentCongratsBinding
                 = DataBindingUtil.inflate(inflater, R.layout.fragment_congrats, container, false)
 
-
+        binding.butCreate3.setOnClickListener {
+            (requireActivity() as MainActivity).showNewsFragment(FROM_RIGHT)
+        }
 
         return binding.root
     }
